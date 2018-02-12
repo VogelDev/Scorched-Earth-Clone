@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -6,6 +7,7 @@ using UnityEngine.Networking;
 public class Player : NetworkBehaviour {
 
     public GameObject TankPrefab;
+    GameObject myTank;
 
 	// Use this for initialization
 	void Start ()
@@ -41,9 +43,9 @@ public class Player : NetworkBehaviour {
         // TODO: Consider the player has some custom settings
 
         // spawns on client without telling anyone
-        GameObject go = Instantiate(TankPrefab);
+        myTank = Instantiate(TankPrefab);
 
-        NetworkServer.Spawn(go);
+        NetworkServer.SpawnWithClientAuthority(myTank, connectionToClient);
 
     }
 }
