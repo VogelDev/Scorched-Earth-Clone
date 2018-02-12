@@ -44,6 +44,9 @@ TagManager:
   - name: Turret
     uniqueID: 1658060187
     locked: 0
+  - name: TankTracks
+    uniqueID: 552310215
+    locked: 0
   - name: Tanks
     uniqueID: 456135019
     locked: 0

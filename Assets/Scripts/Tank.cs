@@ -14,10 +14,17 @@ public class Tank : NetworkBehaviour {
     float MovementLeft;
     float Speed = 5;
 
+    public GameObject CurrentBulletPrefab;
+
+    float turretAngle = 45f;
+    float turretPower = 10f;
+
     [SyncVar]
     Vector3 serverPosition;
 
     Vector3 serverPositionSmoothVelocity;
+
+    public Transform BulletSpawnPoint;
 
     // Use this for initialization
     void Start () {
@@ -63,12 +70,42 @@ public class Tank : NetworkBehaviour {
         // Do we manually tell the network where we moved?
         CmdUpdatePosition(transform.position);
 
+        if (Input.GetButtonUp("Jump"))
+        {
+            Vector2 velocity = new Vector2(
+                turretPower * Mathf.Cos(turretAngle * Mathf.Deg2Rad),
+                turretPower * Mathf.Sin(turretAngle * Mathf.Deg2Rad)
+            );
+            CmdFireBullet(BulletSpawnPoint.position, velocity);
+        }
+
     }
 
     void NewTurn()
     {
         // run on server? SyncVars?
         MovementLeft = MovementPerTurn;
+    }
+
+    [Command]
+    void CmdFireBullet(Vector2 position, Vector2 velocity)
+    {
+        Debug.Log("Firing a bullet");
+        // TODO: Make sure the position and velocity are legal
+
+        // Create the bullet for the clients
+        float angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
+
+        GameObject go = Instantiate(
+            CurrentBulletPrefab, 
+            position, 
+            Quaternion.Euler(0,0,angle)
+        );
+        Rigidbody2D rb = go.GetComponent<Rigidbody2D>();
+        rb.velocity = velocity;
+
+        NetworkServer.Spawn(go);
+
     }
 
     [Command]

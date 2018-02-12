@@ -38,8 +38,8 @@ GameObject:
   - component: {fileID: 4620255953369866}
   - component: {fileID: 50865314059512510}
   - component: {fileID: 114617698921779548}
-  - component: {fileID: 114030282709720720}
   - component: {fileID: 114866511818683402}
+  - component: {fileID: 114599107764816460}
   m_Layer: 0
   m_Name: Bullet-Normal
   m_TagString: Untagged
@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1011333957322274}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.41964865, y: -1.6616337, z: 0.03175988}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4620255953369866}
@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1172314608789286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.41964865, y: 2.699, z: -0.03175988}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4345341684147296}
@@ -119,7 +119,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.38, y: 0.14}
   m_EdgeRadius: 0
---- !u!114 &114030282709720720
+--- !u!114 &114599107764816460
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1172314608789286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffc724e92c7f14947bf1e96eadc9f5df, type: 3}
+  m_Script: {fileID: 11500000, guid: a1d3be7b99b32ea4ab48534bb379e2d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114617698921779548
@@ -214,8 +214,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -941671159
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 99f3857a765924c41ab8795245a9940f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
